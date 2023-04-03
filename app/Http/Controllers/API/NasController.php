@@ -37,7 +37,13 @@ class NasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $register = Nas::create($request->all());
+
+      return response()->json([
+          'status' => true,
+          'message' => "NAS created successfully!",
+          'register' => $register
+      ], 200);
     }
 
     /**
@@ -46,9 +52,9 @@ class NasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nasname)
     {
-        //
+        return response()->json(Nas::where('nasname', $nasname)->get());
     }
 
     /**
@@ -71,7 +77,20 @@ class NasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $register = Nas::where('id', $id);
+
+      if($register->update($request->all())) {
+        return response()->json([
+            'status' => true,
+            'message' => "NAS updated successfully!",
+            'register' => $register->get(),
+        ], 200);
+      } else {
+        return response()->json([
+          'status' => false,
+          'message' => "Can not update register!"
+        ], 203);
+      }
     }
 
     /**
@@ -82,6 +101,18 @@ class NasController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $register = Nas::where('id', $id);
+
+      if($register->delete()) {
+        return response()->json([
+          'status' => true,
+          'message' => "NAS delete successfully!"
+        ], 200);
+      } else {
+        return response()->json([
+          'status' => false,
+          'message' => "Can not delete NAS register!"
+        ], 204);
+      }
     }
 }

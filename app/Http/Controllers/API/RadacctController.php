@@ -15,9 +15,7 @@ class RadacctController extends Controller
      */
     public function index()
     {
-      return view('client-connection', [
-        'registers' => Radacct::latest()->filter(request()->only('search'))->limit(5)->get()
-      ]);
+      return response()->json(Radacct::latest()->limit(10)->get());
     }
 
     /**
@@ -47,13 +45,9 @@ class RadacctController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($username)
     {
-      return view('client-connection', [
-        'registers' => Radacct::latest()->filter(request()->only('search'))->limit(5)->get()
-      ]);
-
-      return response()->json(Radacct::where(['username' => $id])->get());
+      return response()->json(Radacct::where(['username' => $username])->get());
     }
 
     /**
