@@ -10,6 +10,7 @@ use App\Http\Controllers\API\RadgroupreplyController;
 use App\Http\Controllers\API\RadpostauthController;
 use App\Http\Controllers\API\RadreplyController;
 use App\Http\Controllers\API\RadusergroupController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +27,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('nas', NasController::class);
-Route::apiResource('radacct', RadacctController::class);
-Route::apiResource('radcheck', RadcheckController::class);
-Route::apiResource('radgroupcheck', RadgroupcheckController::class);
-Route::apiResource('radgroupreply', RadgroupreplyController::class);
-Route::apiResource('radpostauth', RadpostauthController::class);
-Route::apiResource('radreply', RadreplyController::class);
-Route::apiResource('radusergroup', RadusergroupController::class);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group( function () {
+  Route::apiResource('nas', NasController::class);
+  Route::apiResource('radacct', RadacctController::class);
+  Route::apiResource('radcheck', RadcheckController::class);
+  Route::apiResource('radgroupcheck', RadgroupcheckController::class);
+  Route::apiResource('radgroupreply', RadgroupreplyController::class);
+  Route::apiResource('radpostauth', RadpostauthController::class);
+  Route::apiResource('radreply', RadreplyController::class);
+  Route::apiResource('radusergroup', RadusergroupController::class);
+});
