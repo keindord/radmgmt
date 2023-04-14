@@ -10,6 +10,8 @@ use App\Http\Controllers\API\RadgroupreplyController;
 use App\Http\Controllers\API\RadpostauthController;
 use App\Http\Controllers\API\RadreplyController;
 use App\Http\Controllers\API\RadusergroupController;
+use App\Http\Controllers\API\NasreloadController;
+use App\Http\Controllers\API\DataUsageByPeriodController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -39,4 +41,6 @@ Route::middleware('auth:sanctum')->group( function () {
   Route::apiResource('radpostauth', RadpostauthController::class);
   Route::apiResource('radreply', RadreplyController::class);
   Route::apiResource('radusergroup', RadusergroupController::class);
+  Route::apiResource('nasreload', NasreloadController::class);
+  Route::apiResource('datausagebyperiod', DataUsageByPeriodController::class);
 });
