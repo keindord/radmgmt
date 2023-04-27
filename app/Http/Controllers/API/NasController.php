@@ -52,9 +52,9 @@ class NasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($nasname)
+    public function show($id)
     {
-        return response()->json(Nas::where('nasname', $nasname)->get());
+        return response()->json(Nas::where('id', $id)->get());
     }
 
     /**

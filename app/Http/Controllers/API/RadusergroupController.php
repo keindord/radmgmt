@@ -15,7 +15,7 @@ class RadusergroupController extends Controller
      */
     public function index()
     {
-      return response()->json(Radusergroup::latest()->limit(10)->get());
+      return response()->json(Radusergroup::all());
 
     }
 
@@ -52,9 +52,9 @@ class RadusergroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($username)
+    public function show($id)
     {
-      return response()->json(Radusergroup::where('username', $username)->get());
+      return response()->json(Radusergroup::where('id', $id)->get());
 
     }
 

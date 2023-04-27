@@ -15,7 +15,7 @@ class RadcheckController extends Controller
      */
     public function index()
     {
-      return response()->json(Radcheck::latest()->limit(10)->get());
+      return response()->json(Radcheck::limit(100)->get());
     }
 
     /**
@@ -51,9 +51,9 @@ class RadcheckController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($username)
+    public function show($id)
     {
-      return response()->json(Radcheck::where('username', $username)->get());
+      return response()->json(Radcheck::where('id', $id)->get());
 
     }
 

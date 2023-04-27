@@ -15,7 +15,7 @@ class RadgroupreplyController extends Controller
      */
     public function index()
     {
-      return response()->json(Radgroupreply::latest()->limit(10)->get());
+      return response()->json(Radgroupreply::all());
     }
 
     /**
@@ -51,9 +51,9 @@ class RadgroupreplyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($groupname)
+    public function show($id)
     {
-      return response()->json(Radgroupreply::where('groupname', $groupname)->get());
+      return response()->json(Radgroupreply::where('id', $id)->get());
 
     }
 

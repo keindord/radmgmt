@@ -16,7 +16,7 @@ class RadgroupcheckController extends Controller
      */
     public function index()
     {
-        return response()->json(Radgroupcheck::latest()->limit(10)->get());
+        return response()->json(Radgroupcheck::all());
     }
 
     /**
@@ -52,9 +52,9 @@ class RadgroupcheckController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($groupname)
+    public function show($id)
     {
-        return response()->json(Radgroupcheck::where('groupname', $groupname)->get());
+        return response()->json(Radgroupcheck::where('id', $id)->get());
     }
 
     /**

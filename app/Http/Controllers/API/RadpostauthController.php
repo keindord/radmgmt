@@ -15,7 +15,8 @@ class RadpostauthController extends Controller
      */
     public function index()
     {
-        //
+      return response()->json(Radpostauth::limit(100)->get());
+
     }
 
     /**

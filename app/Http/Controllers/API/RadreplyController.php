@@ -15,7 +15,7 @@ class RadreplyController extends Controller
      */
     public function index()
     {
-      return response()->json(Radreply::latest()->limit(10)->get());
+      return response()->json(Radreply::all());
 
     }
 
@@ -54,7 +54,7 @@ class RadreplyController extends Controller
      */
     public function show($id)
     {
-      return response()->json(Radreply::where('username', $username)->get());
+      return response()->json(Radreply::where('id', $id)->get());
 
     }
 

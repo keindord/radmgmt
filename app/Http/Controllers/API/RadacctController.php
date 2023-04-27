@@ -15,7 +15,7 @@ class RadacctController extends Controller
      */
     public function index()
     {
-      return response()->json(Radacct::latest()->limit(10)->get());
+      return response()->json(Radacct::latest()->limit(100)->get());
     }
 
     /**

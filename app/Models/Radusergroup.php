@@ -16,5 +16,7 @@ class Radusergroup extends Model
 
     protected $guarded = ['id'];
 
+    public $timestamps = false;
+
     use HasFactory;
 }
