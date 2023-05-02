@@ -43,7 +43,7 @@ class UserSessionController extends Controller
       $sucursales = [
         'VIG' =>  'value like \'%VL80%\'',
         'SC'  =>  'value like \'%74\' or value like \'%39%\' or value like \'%63%\' or value like \'%64%\'',
-        'MRD' =>  'value like \'%VL75%\' or value like \'%VL76%\' or value like \'%VL77%\' or value like \'%VL78%\' or value like \'%VL79\'',
+        'MRD' =>  'value like \'%VL75%\' or value like \'%VL76%\' or value like \'%VL77%\' or value like \'%VL78%\' or value like \'%VL79%\'',
         'CLN' =>  'value like \'%VL72%\'',
         'CLC' =>  'value like \'%VL66%\'',
         'LFR' =>  'value like \'%VL67%\'',
@@ -52,11 +52,11 @@ class UserSessionController extends Controller
         'CJS' =>  'value like \'%VL65%\'',
         'CCS' =>  'value like \'%3021%\'',
         'BOC' =>  'value like \'%VL62%\'',
-        'MBO' =>  'value like \'%VL18\' or value like \'%VL19%\' or value like \'%VL20%\' or value like \'%VL21%\'',
+        'MBO' =>  'value like \'%VL18%\' or value like \'%VL19%\' or value like \'%VL20%\' or value like \'%VL21%\'',
         'MCH' =>  'value like \'%VL68%\'',
         'PZO' =>  'value like \'%VL74-PZO\' or value like \'%VL92%\''
       ];
-      
+
       if(array_key_exists($branch, $sucursales))
         $query = $sucursales[$branch];
       else
