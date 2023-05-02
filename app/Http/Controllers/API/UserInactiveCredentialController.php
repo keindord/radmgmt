@@ -17,7 +17,7 @@ class UserInactiveCredentialController extends Controller
     {
       return response()->json(
         DB::select('
-          select count(distinct username) from radcheck where attribute = \'Auth-Type\')
+          select count(distinct username) from radcheck where attribute = \'Auth-Type\'
         '), 200
       );
     }
