@@ -17,10 +17,8 @@ class UserInactiveCredentialController extends Controller
     {
       return response()->json(
         DB::select('
-          select count(distinct username)
-          from radcheck
-          where username in (select distinct username from radcheck where attribute = \'Auth-Type\')
-        ')
+          select count(distinct username) from radcheck where attribute = \'Auth-Type\')
+        '), 200
       );
     }
 
@@ -72,8 +70,8 @@ class UserInactiveCredentialController extends Controller
         DB::select('
           select count(distinct username)
           from radcheck
-          where username in (select distinct username from radcheck where attribute = \'Auth-Type\')
-          and ' . $query ), 200
+          where username in (select distinct username from radcheck where attribute = \'User-Profile\' and ' . $query . ')
+          and attribute = \'Auth-Type\' '), 200
       );
     }
 
